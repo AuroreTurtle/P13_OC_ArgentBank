@@ -1,6 +1,6 @@
 import "./Account.css";
 
-function Account({ title, amount, description }) {
+function Account({ title, amount, description, color }) {
     return (
         <section className="account">
             <div className="account-content-wrapper">
@@ -9,7 +9,7 @@ function Account({ title, amount, description }) {
                 <p className="account-amount-description">{description}</p>
             </div>
             <div className="account-content-wrapper cta">
-                <button className="transaction-button">View transactions</button>
+                <button className={color}>View transactions</button>
             </div>
         </section>
     );

@@ -8,7 +8,7 @@ import Security from "../../assets/icon-security.png";
 function Home() {
     return (
         <main>
-            <div class="hero">
+            <div className="hero">
                 <section className="hero-content">
                     <h2 className="sr-only">Promoted Content</h2>
                     <p className="subtitle">No fees.</p>

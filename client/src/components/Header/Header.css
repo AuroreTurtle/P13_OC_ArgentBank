@@ -14,6 +14,13 @@
     color: #42b983;
 }
 
+.main-nav-content-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;
@@ -30,5 +37,16 @@
 
 .main-nav-logo-image {
     max-width: 100%;
-    width: 200px;
+    width: 155px;
+}
+
+@media (min-width: 768px){
+    .main-nav-content-item{
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .main-nav-logo-image {
+        width: 200px;
+    }
 }

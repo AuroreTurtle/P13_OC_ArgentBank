@@ -20,7 +20,7 @@ function Header() {
                         </Link>
                     </div>
                 ) : (
-                    <div>
+                    <div className="main-nav-content-item">
                         <Link to="/user" className="main-nav-item">
                             <i className="fa fa-user-circle"></i>
                             Tony

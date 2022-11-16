@@ -1,7 +1,7 @@
 .sign-in-button {
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 8px 0;
     font-size: 1.1rem;
     font-weight: bold;
     margin-top: 1rem;
@@ -20,7 +20,7 @@
 }
 
 .sign-in-icon {
-    font-size: 5rem;
+    font-size: 35px;
 }
 
 .input-remember {
@@ -45,4 +45,7 @@
 .input-wrapper input {
     padding: 5px;
     font-size: 1.2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
 }

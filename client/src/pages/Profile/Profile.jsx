@@ -1,9 +1,8 @@
-import "./User.css";
+import { useState } from "react";
+import "./Profile.css";
 import Account from "../../components/Account/Account";
 
-import { useState } from "react";
-
-function User() {
+function Profile() {
     const [editOn, setEditOn] = useState(false);
 
     const toggleEdit = () => {
@@ -74,4 +73,4 @@ function User() {
     );
 }
 
-export default User;
+export default Profile;

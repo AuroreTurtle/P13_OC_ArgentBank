@@ -1,32 +1,63 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
+import { login } from "../../services/AuthApi";
 
 function SignIn() {
+    const navigate = useNavigate();
+
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleChange = ({ currentTarget }) => {
+        const { name, value } = currentTarget;
+
+        // console.log(name, value);
+        setUser({ ...user, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await login(user);
+            console.log(response);
+            navigate("/profile/" + response);
+        } catch ({ response }) {
+            console.log(response);
+            // alert(response.data.message);
+        }
+    };
+
     return (
         <main className="main bg-dark">
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
-                        <input type="text" id="username" />
+                        <input type="text" id="username" name="email" onChange={handleChange} />
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" />
+                        <input type="password" id="password" name="password" onChange={handleChange} />
                     </div>
                     <div className="input-remember">
                         <input type="checkbox" id="remember-me" />
                         <label htmlFor="remember-me">Remember me</label>
                     </div>
                     {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-                    <Link to="/user" className="sign-in-button">
+                    {/* <Link to="/user" className="sign-in-button">
                         Sign In
-                    </Link>
+                    </Link> */}
                     {/* <!-- SHOULD BE THE BUTTON BELOW --> */}
-                    {/* <!-- <button class="sign-in-button">Sign In</button> --> */}
-                    {/* <!--  --> */}
+                    <button className="sign-in-button" type="submit">
+                        Sign In
+                    </button>
                 </form>
             </section>
         </main>

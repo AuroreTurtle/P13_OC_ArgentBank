@@ -1,9 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
+import { logout } from "../../services/AuthApi";
 import "./Header.css";
 import Logo from "../../assets/argentBankLogo.png";
 
 function Header() {
     const pathname = useLocation().pathname;
+
+    const handleLogout = () => {
+        logout();
+    };
+
     return (
         <header>
             <nav className="main-nav">
@@ -25,7 +31,7 @@ function Header() {
                             <i className="fa fa-user-circle"></i>
                             Tony
                         </Link>
-                        <Link to="/" className="main-nav-item">
+                        <Link to="/" className="main-nav-item" onClick={handleLogout}>
                             <i className="fa fa-sign-out"></i>
                             Sign Out
                         </Link>

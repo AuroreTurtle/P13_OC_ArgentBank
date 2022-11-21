@@ -12,7 +12,7 @@ function App() {
             <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
-                <Route path="/profile/:token" element={<Profile />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
             <Footer />
         </BrowserRouter>

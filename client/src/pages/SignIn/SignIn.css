@@ -49,3 +49,8 @@
     border-style: solid;
     border-radius: 2px;
 }
+
+.error{
+    color: red;
+    font-size: 1.1rem;
+}

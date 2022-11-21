@@ -21,14 +21,16 @@ function SignIn() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const errorForm = document.querySelector(".error");
 
         try {
             const response = await login(user);
             console.log(response);
-            navigate("/profile/" + response);
+            navigate("/profile");
         } catch ({ response }) {
             console.log(response);
             // alert(response.data.message);
+            errorForm.innerHTML = "Invalid email and/or password";
         }
     };
 
@@ -38,6 +40,7 @@ function SignIn() {
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit}>
+                    <div className="error"></div>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
                         <input type="text" id="username" name="email" onChange={handleChange} />

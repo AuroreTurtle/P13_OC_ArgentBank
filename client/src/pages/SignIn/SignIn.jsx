@@ -1,10 +1,13 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "./SignIn.css";
+import { useDispatch } from "react-redux";
 import { login } from "../../services/AuthApi";
+import { loginUser } from "../../feature/user.slice";
+import "./SignIn.css";
 
 function SignIn() {
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
 
     const [user, setUser] = useState({
@@ -25,7 +28,7 @@ function SignIn() {
 
         try {
             const response = await login(user);
-            console.log(response);
+            dispatch(loginUser({ token: response, isAuthenticated: true }));
             navigate("/profile");
         } catch ({ response }) {
             console.log(response);
@@ -43,21 +46,16 @@ function SignIn() {
                     <div className="error"></div>
                     <div className="input-wrapper">
                         <label htmlFor="username">Username</label>
-                        <input type="text" id="username" name="email" onChange={handleChange} />
+                        <input type="text" id="username" name="email" onChange={handleChange} required />
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" onChange={handleChange} />
+                        <input type="password" id="password" name="password" onChange={handleChange} required />
                     </div>
                     <div className="input-remember">
                         <input type="checkbox" id="remember-me" />
                         <label htmlFor="remember-me">Remember me</label>
                     </div>
-                    {/* <!-- PLACEHOLDER DUE TO STATIC SITE --> */}
-                    {/* <Link to="/user" className="sign-in-button">
-                        Sign In
-                    </Link> */}
-                    {/* <!-- SHOULD BE THE BUTTON BELOW --> */}
                     <button className="sign-in-button" type="submit">
                         Sign In
                     </button>

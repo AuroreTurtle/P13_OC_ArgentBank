@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./Profile.css";
 import Account from "../../components/Account/Account";
+import { useSelector } from "react-redux";
 
 function Profile() {
+    const token = useSelector((state) => state.user.user.token);
+    console.log(token);
+
     const [editOn, setEditOn] = useState(false);
 
     const toggleEdit = () => {

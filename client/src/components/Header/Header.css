@@ -17,8 +17,9 @@
 .main-nav-content-item{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 10px;
+    height: 40px;
 }
 
 .main-nav-item {
@@ -40,10 +41,16 @@
     width: 155px;
 }
 
+.fa-user-circle, .fa-sign-out {
+    margin-right: 5px;
+}
+
 @media (min-width: 768px){
     .main-nav-content-item{
         flex-direction: row;
         margin-top: 0;
+        width: 180px;
+        height: auto;
     }
 
     .main-nav-logo-image {

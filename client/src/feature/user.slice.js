@@ -21,7 +21,7 @@ export const userSlice = createSlice({
             state.user = action.payload;
         },
         logoutUser: (state) => {
-            state.value = defaultUserAuth;
+            state.user = defaultUserAuth;
         },
     },
 });

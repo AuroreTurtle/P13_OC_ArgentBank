@@ -14,7 +14,6 @@ function Header() {
 
     const [userData, setUserData] = useState("");
 
-    //Problème obligé de rafraichir page pour être déconnecté vraiment
     const handleLogout = () => {
         dispatch(logoutUser());
         logout();

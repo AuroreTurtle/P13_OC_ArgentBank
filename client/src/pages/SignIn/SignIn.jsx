@@ -32,8 +32,9 @@ function SignIn() {
             navigate("/profile");
         } catch ({ response }) {
             console.log(response);
-            // alert(response.data.message);
-            errorForm.innerHTML = "Invalid email and/or password";
+            if (response.data.status === 400) {
+                errorForm.innerHTML = "Invalid email and/or password";
+            }
         }
     };
 

@@ -34,7 +34,6 @@ function Header() {
                 setUserData(response.data.body);
             } catch ({ response }) {
                 console.log(response);
-                // alert(response.data.message);
             }
         } else {
             console.log("No token");

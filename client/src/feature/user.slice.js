@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getItem } from "../services/LocalStorage";
+import { getItem } from "../services/Storage";
 
 const defaultUserAuth = { token: "", isAuthenticated: false };
 let userAuth = defaultUserAuth;

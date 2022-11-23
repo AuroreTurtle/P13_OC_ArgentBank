@@ -5,6 +5,8 @@ import { login } from "../../services/AuthApi";
 import { loginUser } from "../../feature/user.slice";
 import "./SignIn.css";
 
+import { addItemSession, addItem } from "../../services/Storage";
+
 function SignIn() {
     const dispatch = useDispatch();
 
@@ -14,10 +16,10 @@ function SignIn() {
         email: "",
         password: "",
     });
+    const [rememberMe, setRememberMe] = useState(false);
 
     const handleChange = ({ currentTarget }) => {
         const { name, value } = currentTarget;
-
         // console.log(name, value);
         setUser({ ...user, [name]: value });
     };
@@ -27,7 +29,15 @@ function SignIn() {
         const errorForm = document.querySelector(".error");
 
         try {
-            const response = await login(user);
+            const response = await login(user).then((token) => {
+                if (rememberMe) {
+                    addItem("userToken", token);
+                    return token;
+                } else {
+                    addItemSession("userToken", token);
+                    return token;
+                }
+            });
             dispatch(loginUser({ token: response, isAuthenticated: true }));
             navigate("/profile");
         } catch ({ response }) {
@@ -54,7 +64,13 @@ function SignIn() {
                         <input type="password" id="password" name="password" onChange={handleChange} required />
                     </div>
                     <div className="input-remember">
-                        <input type="checkbox" id="remember-me" />
+                        <input
+                            type="checkbox"
+                            id="remember-me"
+                            onClick={() => {
+                                setRememberMe((current) => !current);
+                            }}
+                        />
                         <label htmlFor="remember-me">Remember me</label>
                     </div>
                     <button className="sign-in-button" type="submit">

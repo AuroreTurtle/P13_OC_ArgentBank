@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import Home from "../pages/Home/Home";
 import SignIn from "../pages/SignIn/SignIn";
 import Profile from "../pages/Profile/Profile";
+import Error from "../pages/Error/Error";
 import Footer from "../components/Footer/Footer";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                         </PrivateRoute>
                     }
                 />
+                <Route path="*" element={<Error />} />
             </Routes>
             <Footer />
         </BrowserRouter>

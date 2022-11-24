@@ -1,6 +1,10 @@
 # Project #10 - Argent Bank API
 
-This codebase contains the code needed to run the backend for Argent Bank.
+![Logo Argent Bank](https://user.oc-static.com/upload/2020/08/14/1597410191519_image2.png)
+
+The goal of the project is to set up an application allowing the bank's customers to connect and manage their profile and their accounts.
+
+The server folder contains the code needed to run the backend for Argent Bank.
 
 ## Getting Started
 
@@ -37,9 +41,21 @@ npm run dev:server
 
 # Populate database with two users
 npm run populate-db
-```
 
 Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+
+# In a second terminal :
+## Access the frontend folder named client
+cd .\client\
+
+## Install dependencies
+npm install
+
+## Start the app
+npm start
+
+The app should now be running at http://localhost:3000
+```
 
 ## Populated Database Data
 

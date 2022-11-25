@@ -1,17 +1,53 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./Profile.css";
 import Account from "../../components/Account/Account";
-import { useSelector } from "react-redux";
 
+/**
+ * It returns React Component that displays the profile page.
+ * @returns A React component.
+ */
 function Profile() {
     const token = useSelector((state) => state.user.user.token);
-    console.log(token);
 
+    const [userData, setUserData] = useState("");
+    const [userName, setUserName] = useState({
+        firstName: "",
+        lastName: "",
+    });
     const [editOn, setEditOn] = useState(false);
 
     const toggleEdit = () => {
         setEditOn((current) => !current);
     };
+
+    const getData = async (token) => {
+        try {
+            const response = await axios({
+                method: "post",
+                url: "http://localhost:3001/api/v1/user/profile",
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8",
+                    Authorization: "Bearer" + token,
+                },
+            });
+            setUserData(response.data.body);
+        } catch ({ response }) {
+            console.log(response);
+        }
+    };
+
+    const handleChange = ({ currentTarget }) => {
+        const { name, value } = currentTarget;
+
+        // console.log(name, value);
+        setUserName({ ...userName, [name]: value });
+    };
+
+    useEffect(() => {
+        getData(token);
+    }, [token]);
 
     return (
         <main className={editOn ? "main bg-light" : "main bg-dark"}>
@@ -19,8 +55,20 @@ function Profile() {
                 <div className="header">
                     <h1 className="edit-title">Welcome back</h1>
                     <form className="edit-profile">
-                        <input className="edit-profile-input" type="text" placeholder="Tony" />
-                        <input className="edit-profile-input" type="text" placeholder="Jarvis" />
+                        <input
+                            className="edit-profile-input"
+                            type="text"
+                            name="firstName"
+                            placeholder={userData.firstName}
+                            onChange={handleChange}
+                        />
+                        <input
+                            className="edit-profile-input"
+                            type="text"
+                            name="lastName"
+                            placeholder={userData.lastName}
+                            onChange={handleChange}
+                        />
                         <button className="edit-profile-button" type="submit">
                             Save
                         </button>
@@ -34,7 +82,7 @@ function Profile() {
                     <h1>
                         Welcome back
                         <br />
-                        Tony Jarvis!
+                        {userData.firstName} {userData.lastName}!
                     </h1>
                     <button className="edit-button" onClick={toggleEdit}>
                         Edit Name

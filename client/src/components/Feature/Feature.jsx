@@ -1,5 +1,9 @@
 import "./Feature.css";
 
+/**
+ * It returns React Component that displays an icon, title, and text.
+ * @returns A React component.
+ */
 function Feature({ icon, title, text }) {
     return (
         <div className="feature-item">

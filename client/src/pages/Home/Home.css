@@ -1,3 +1,4 @@
+/* Mobile */
 .hero {
     background-image: url('../../assets/bank-tree.jpeg');
     background-position: 0 -50px;
@@ -28,6 +29,12 @@
     font-size: 0.9rem;
 }
 
+.features {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablet */
 @media (min-width: 768px){
     .hero-content {
         position: absolute;
@@ -37,6 +44,7 @@
     }
 }
 
+/* Desktop */
 @media (min-width: 920px) {
     .hero {
         height: 400px;
@@ -54,15 +62,7 @@
     .hero-content .text {
         font-size: 1.2rem;
     }
-}
 
-
-.features {
-    display: flex;
-    flex-direction: column;
-}
-
-@media (min-width: 920px) {
     .features {
         flex-direction: row;
     }

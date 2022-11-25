@@ -7,6 +7,10 @@ import { logoutUser } from "../../feature/user.slice";
 import "./Header.css";
 import Logo from "../../assets/argentBankLogo.png";
 
+/**
+ * It returns the React component that displays the header according to if we are login or not.
+ * @returns A React component
+ */
 function Header() {
     const dispatch = useDispatch();
     const userStatus = useSelector((state) => state.user.user);
@@ -34,8 +38,6 @@ function Header() {
             } catch ({ response }) {
                 console.log(response);
             }
-        } else {
-            console.log("No token");
         }
     };
 

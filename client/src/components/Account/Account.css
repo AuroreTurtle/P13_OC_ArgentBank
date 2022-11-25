@@ -1,3 +1,4 @@
+/* Mobile */
 .account {
     display: flex;
     justify-content: space-between;
@@ -56,7 +57,7 @@
     background-color: #685cf5;
 }
 
-
+/* Tablet and Desktop */
 @media (min-width: 720px) {
     .account {
         flex-direction: row;

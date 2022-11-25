@@ -1,5 +1,9 @@
 import "./Account.css";
 
+/**
+ * It returns React Component that displays a title, amount, description, and color.
+ * @returns A React component.
+ */
 function Account({ title, amount, description, color }) {
     return (
         <section className="account">

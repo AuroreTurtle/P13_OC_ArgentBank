@@ -13,19 +13,6 @@ body {
   min-height: 100vh;
 }
 
-.main {
-    flex: 1;
-
-    height: 86.5vh;
-    padding-top: 0.5%;
-}
-
-@media (min-width: 768px){
-  .main {
-    height: 85vh;
-  }
-}
-
 .bg-dark {
     background-color: #12002b;
 }
@@ -42,4 +29,18 @@ body {
   position: absolute !important;
   width: 1px !important;
   white-space: nowrap !important; /* 3 */
+}
+
+/* Mobile */
+.main {
+    flex: 1;
+    height: 86.5vh;
+    padding-top: 0.5%;
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px){
+  .main {
+    height: 85vh;
+  }
 }

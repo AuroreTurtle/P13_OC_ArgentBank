@@ -5,6 +5,10 @@ import Chat from "../../assets/icon-chat.png";
 import Money from "../../assets/icon-money.png";
 import Security from "../../assets/icon-security.png";
 
+/**
+ * It returns React Component that displays the home page.
+ * @returns A React component.
+ */
 function Home() {
     return (
         <main>

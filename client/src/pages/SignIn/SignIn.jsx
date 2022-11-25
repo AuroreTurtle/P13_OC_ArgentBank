@@ -7,6 +7,10 @@ import "./SignIn.css";
 
 import { addItemSession, addItem } from "../../services/Storage";
 
+/**
+ * It returns React Component that displays the login page and returns to the profile page if the form is correct.
+ * @returns A React component.
+ */
 function SignIn() {
     const dispatch = useDispatch();
 

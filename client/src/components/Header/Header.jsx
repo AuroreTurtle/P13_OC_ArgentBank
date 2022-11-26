@@ -43,7 +43,7 @@ function Header() {
 
     useEffect(() => {
         getData(token);
-    }, [token]);
+    }, [token, userData]);
 
     return (
         <header>

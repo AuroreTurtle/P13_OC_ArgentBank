@@ -38,11 +38,24 @@ function Profile() {
         }
     };
 
+    // To edit the first and last name
     const handleChange = ({ currentTarget }) => {
         const { name, value } = currentTarget;
-
-        // console.log(name, value);
         setUserName({ ...userName, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.put("http://localhost:3001/api/v1/user/profile", userName, {
+                headers: { "Content-type": "application/json; charset=UTF-8", Authorization: "Bearer" + token },
+            });
+            setUserData(response.data.body);
+            toggleEdit();
+        } catch ({ response }) {
+            console.log(response);
+        }
     };
 
     useEffect(() => {
@@ -54,13 +67,14 @@ function Profile() {
             {editOn ? (
                 <div className="header">
                     <h1 className="edit-title">Welcome back</h1>
-                    <form className="edit-profile">
+                    <form className="edit-profile" onSubmit={handleSubmit}>
                         <input
                             className="edit-profile-input"
                             type="text"
                             name="firstName"
                             placeholder={userData.firstName}
                             onChange={handleChange}
+                            required
                         />
                         <input
                             className="edit-profile-input"
@@ -68,6 +82,7 @@ function Profile() {
                             name="lastName"
                             placeholder={userData.lastName}
                             onChange={handleChange}
+                            required
                         />
                         <button className="edit-profile-button" type="submit">
                             Save

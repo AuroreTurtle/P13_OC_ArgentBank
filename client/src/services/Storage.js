@@ -13,7 +13,7 @@ export function removeItem(itemToRemove) {
  * @returns The value of the item in localStorage.
  */
 export function getItem(item) {
-    return window.localStorage.getItem(item);
+    return window.localStorage.getItem(item) || window.sessionStorage.getItem(item);
 }
 
 /**

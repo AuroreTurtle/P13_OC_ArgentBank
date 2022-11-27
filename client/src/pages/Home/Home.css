@@ -12,7 +12,7 @@
     position: relative;
     top: 2rem;
     width: 200px;
-    background: white;
+    background: rgba(255, 255, 255, 0.733);
     padding: 2rem;
     text-align: left;
     margin: 0 auto;
@@ -41,6 +41,7 @@
         top: 50px;
         right: 50px;
         margin: 2rem;
+        background: white;
     }
 }
 

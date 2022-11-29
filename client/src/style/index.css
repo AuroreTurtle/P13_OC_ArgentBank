@@ -31,7 +31,6 @@ body {
   white-space: nowrap !important; /* 3 */
 }
 
-/* Mobile */
 .main {
     flex: 1;
     padding-top: 0.5%;

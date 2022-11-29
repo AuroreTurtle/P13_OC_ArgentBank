@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getItem } from "../services/Storage";
+import { getItem, removeItem } from "../services/Storage";
 
 const defaultUserAuth = { token: "", isAuthenticated: false };
 let userAuth = defaultUserAuth;
@@ -22,6 +22,7 @@ export const userSlice = createSlice({
         },
         logoutUser: (state) => {
             state.user = defaultUserAuth;
+            removeItem("userToken");
         },
     },
 });

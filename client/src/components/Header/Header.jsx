@@ -2,7 +2,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeItem } from "../../services/Storage";
 import { logoutUser } from "../../feature/user.slice";
 import "./Header.css";
 import Logo from "../../assets/argentBankLogo.png";
@@ -20,7 +19,6 @@ function Header() {
 
     const handleLogout = () => {
         dispatch(logoutUser());
-        removeItem("userToken");
     };
 
     const getData = async (token) => {

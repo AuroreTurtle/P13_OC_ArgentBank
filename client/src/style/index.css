@@ -34,13 +34,6 @@ body {
 /* Mobile */
 .main {
     flex: 1;
-    height: 86.5vh;
     padding-top: 0.5%;
-}
-
-/* Tablet and Desktop */
-@media (min-width: 768px){
-  .main {
-    height: 85vh;
-  }
+    padding-bottom: 10%;
 }

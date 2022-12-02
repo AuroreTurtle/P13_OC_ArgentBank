@@ -45,6 +45,10 @@ paths:
             $ref: '#/definitions/Transactions'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized, JWT token is missing or invalid
+        '404':
+          description: Account id not found
         '500':
           description: Internal Server Error
   
@@ -79,6 +83,10 @@ paths:
             $ref: '#/definitions/TransactionDetails'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized, JWT token is missing or invalid
+        '404':
+          description: Account id or transaction id not found
         '500':
           description: Internal Server Error
 
@@ -118,6 +126,10 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized, JWT token is missing or invalid
+        '404':
+          description: Account id or transaction id not found
         '500':
           description: Internal Server Error
     
@@ -157,6 +169,10 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized, JWT token is missing or invalid
+        '404':
+          description: Account id or transaction id not found
         '500':
           description: Internal Server Error
           
@@ -190,6 +206,10 @@ paths:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
+        '401':
+          description: Unauthorized, JWT token is missing or invalid
+        '404':
+          description: Account id or transaction id not found
         '500':
           description: Internal Server Error
 
